@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Examples — Lobstermax</title>
+  <meta name="description" content="Worked examples for OpenClaw tasks." />
+  <link rel="stylesheet" href="./assets/css/style.css" />
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <div class="brand">
+        <h1><a href="./index.html">Lobstermax</a></h1>
+        <span class="badge">OpenClaw</span>
+      </div>
+      <nav class="nav">
+        <a href="./promptmaxing.html">Promptmaxing</a>
+        <a href="./toolmaxing.html">Toolmaxing</a>
+        <a href="./skillmaxing.html">Skillmaxing</a>
+        <a href="./safetymaxing.html">Safetymaxing</a>
+        <a href="./defaults.html">Defaults</a>
+        <a href="./checklists.html">Checklists</a>
+        <a href="./examples.html">Examples</a>
+        <a href="https://github.com/glp-trog/LobsterMax">Repo</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <h2>Examples</h2>
+      <p>Three worked prompts that consistently produce good results in OpenClaw.</p>
+    </section>
+
+    <section class="section">
+      <h3>Example 1 — Fix a bug (minimal diff)</h3>
+
+      <div class="block">
+        <div class="codeHeader">
+          <div class="hint">Paste this, then add your logs and file paths.</div>
+          <button class="copy" data-copy="e-bug">Copy</button>
+        </div>
+        <pre id="e-bug">Goal:
+- Fix a bug with a minimal diff.
+
+Context:
+- Repo: &lt;path&gt;
+- Symptom: &lt;what happens&gt;
+- Expected: &lt;what should happen&gt;
+- Repro command(s):
+  - &lt;command&gt;
+- Error/log snippet:
+  - &lt;paste&gt;
+
+Constraints:
+- Windows PowerShell
+- Prefer surgical edits (no refactors unless required)
+- Don’t change behavior outside the bug
+
+Deliverable:
+- Root cause (2–4 bullets)
+- Patch (file + exact before/after)
+- Verify (exact commands)
+</pre>
+      </div>
+    </section>
+
+    <section class="section">
+      <h3>Example 2 — Publish a static site (docs/)</h3>
+
+      <div class="block">
+        <div class="codeHeader">
+          <div class="hint">Useful for GitHub Pages repos.</div>
+          <button class="copy" data-copy="e-pages">Copy</button>
+        </div>
+        <pre id="e-pages">Goal:
+- Publish a static site via GitHub Pages.
+
+Context:
+- Repo uses:
+  - web/ (source)
+  - docs/ (published)
+- Domain: &lt;domain&gt;
+
+Constraints:
+- Provide exact DNS records (A + CNAME) and what to delete if conflicting.
+- Ensure docs/CNAME exists and matches the domain.
+- Add a publish script to copy web/* → docs/*.
+
+Deliverable:
+- GitHub Pages settings (branch/folder)
+- GoDaddy DNS records to add/remove
+- Commands to build/publish
+</pre>
+      </div>
+    </section>
+
+    <section class="section">
+      <h3>Example 3 — Add an API endpoint (tests included)</h3>
+
+      <div class="block">
+        <div class="codeHeader">
+          <div class="hint">For backend changes that must be verifiable.</div>
+          <button class="copy" data-copy="e-api">Copy</button>
+        </div>
+        <pre id="e-api">Goal:
+- Add a new API endpoint.
+
+Context:
+- Current API: &lt;routes&gt;
+- New endpoint:
+  - Method/path: &lt;GET /x&gt;
+  - Request: &lt;shape&gt;
+  - Response: &lt;shape&gt;
+
+Constraints:
+- Backwards compatible
+- Input validation
+- Add tests
+
+Deliverable:
+- Code changes (diff)
+- Tests added/updated
+- Exact commands to run tests locally
+</pre>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div><a href="./index.html">← Home</a></div>
+      <div><a href="https://github.com/glp-trog/LobsterMax">Repo</a></div>
+    </footer>
+  </div>
+
+  <script src="./assets/js/copy.js"></script>
+</body>
+</html>

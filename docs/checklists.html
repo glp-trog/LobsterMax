@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Checklists — Lobstermax</title>
+  <meta name="description" content="Preflight checklists for OpenClaw work." />
+  <link rel="stylesheet" href="./assets/css/style.css" />
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <div class="brand">
+        <h1><a href="./index.html">Lobstermax</a></h1>
+        <span class="badge">OpenClaw</span>
+      </div>
+      <nav class="nav">
+        <a href="./promptmaxing.html">Promptmaxing</a>
+        <a href="./toolmaxing.html">Toolmaxing</a>
+        <a href="./skillmaxing.html">Skillmaxing</a>
+        <a href="./safetymaxing.html">Safetymaxing</a>
+        <a href="./defaults.html">Defaults</a>
+        <a href="./checklists.html">Checklists</a>
+        <a href="./examples.html">Examples</a>
+        <a href="https://github.com/glp-trog/LobsterMax">Repo</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <h2>Checklists</h2>
+      <p>Preflight checklists for common OpenClaw operations.</p>
+    </section>
+
+    <section class="section">
+      <h3>Copy blocks</h3>
+
+      <div class="block">
+        <h4>Browser preflight</h4>
+        <div class="codeHeader">
+          <div class="hint">Use before automating a UI.</div>
+          <button class="copy" data-copy="c-browser">Copy</button>
+        </div>
+        <pre id="c-browser">Browser preflight:
+- Can web_fetch do it? If yes, don’t automate UI.
+- If using Chrome relay: confirm tab is attached (badge ON).
+- Use snapshot + stable refs (aria) before clicking.
+- Avoid blind waits; wait on a specific UI state.
+- After action: re-snapshot to confirm result.
+</pre>
+      </div>
+
+      <div class="block">
+        <h4>exec preflight</h4>
+        <div class="codeHeader">
+          <div class="hint">Use before running shell commands.</div>
+          <button class="copy" data-copy="c-exec">Copy</button>
+        </div>
+        <pre id="c-exec">exec preflight:
+- Confirm working directory.
+- Print the exact command.
+- Prefer non-destructive flags first.
+- If deleting/resetting: ask for confirmation.
+- Capture errors and paste the key lines.
+</pre>
+      </div>
+
+      <div class="block">
+        <h4>Messaging preflight</h4>
+        <div class="codeHeader">
+          <div class="hint">Prevents wrong-destination sends.</div>
+          <button class="copy" data-copy="c-msg">Copy</button>
+        </div>
+        <pre id="c-msg">Messaging preflight:
+- Show the exact message text.
+- Confirm destination (channel/user).
+- If it’s a group: keep it short and non-spammy.
+- After send: return NO_REPLY to avoid duplication.
+</pre>
+      </div>
+
+      <div class="block">
+        <h4>Secret hygiene checklist</h4>
+        <div class="codeHeader">
+          <div class="hint">Run this before sharing logs or committing.</div>
+          <button class="copy" data-copy="c-secrets">Copy</button>
+        </div>
+        <pre id="c-secrets">Secrets checklist:
+- Search for tokens/keys in recent output.
+- Ensure .gitignore covers key files and build artifacts.
+- Don’t paste gateway tokens or API keys into chats.
+- If a secret was pasted: rotate it.
+</pre>
+      </div>
+
+    </section>
+
+    <footer class="footer">
+      <div><a href="./index.html">← Home</a></div>
+      <div><a href="https://github.com/glp-trog/LobsterMax">Repo</a></div>
+    </footer>
+  </div>
+
+  <script src="./assets/js/copy.js"></script>
+</body>
+</html>
