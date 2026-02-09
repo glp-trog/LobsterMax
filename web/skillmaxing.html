@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Skillmaxing — Lobstermax</title>
+  <meta name="description" content="Skill packaging patterns for OpenClaw: stable inputs/outputs, docs, and tests." />
+  <link rel="stylesheet" href="./assets/css/style.css" />
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <div class="brand">
+        <h1><a href="./index.html">Lobstermax</a></h1>
+        <span class="badge">OpenClaw</span>
+      </div>
+      <nav class="nav">
+        <a href="./promptmaxing.html">Promptmaxing</a>
+        <a href="./toolmaxing.html">Toolmaxing</a>
+        <a href="./skillmaxing.html">Skillmaxing</a>
+        <a href="./safetymaxing.html">Safetymaxing</a>
+        <a href="https://github.com/glp-trog/LobsterMax">Repo</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <h2>Skillmaxing</h2>
+      <p>Build skills like APIs: stable contract, clear failure modes, and good docs.</p>
+    </section>
+
+    <section class="section">
+      <h3>Skeleton</h3>
+
+      <div class="block">
+        <h4>Minimal SKILL.md template</h4>
+        <div class="codeHeader">
+          <div class="hint">Enough structure to be reusable without being heavy.</div>
+          <button class="copy" data-copy="s-skill">Copy</button>
+        </div>
+        <pre id="s-skill"># &lt;skill-name&gt;
+
+## What it does
+- &lt;one paragraph&gt;
+
+## Inputs
+- &lt;what the user provides&gt;
+
+## Outputs
+- &lt;what the skill returns/creates&gt;
+
+## Safety
+- Never exfiltrate secrets
+- Confirm before external actions
+
+## Files
+- &lt;list key files/paths&gt;
+
+## How to test
+- &lt;commands&gt;
+</pre>
+      </div>
+    </section>
+
+    <section class="section">
+      <h3>Contract</h3>
+
+      <div class="block">
+        <h4>Define failure modes up front</h4>
+        <div class="codeHeader">
+          <div class="hint">Predictable failures are easier to recover from.</div>
+          <button class="copy" data-copy="s-fail">Copy</button>
+        </div>
+        <pre id="s-fail">In the docs, explicitly list:
+- auth failures (401)
+- rate limits (429)
+- validation errors (400)
+- upstream outages/timeouts
+
+Then provide:
+- retry policy
+- backoff
+- what to log
+- what never to log
+</pre>
+      </div>
+
+    </section>
+
+    <footer class="footer">
+      <div><a href="./index.html">← Home</a></div>
+      <div><a href="https://github.com/glp-trog/LobsterMax">Repo</a></div>
+    </footer>
+  </div>
+
+  <script src="./assets/js/copy.js"></script>
+</body>
+</html>

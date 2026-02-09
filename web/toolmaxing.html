@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Toolmaxing — Lobstermax</title>
+  <meta name="description" content="OpenClaw tool selection patterns: web_fetch vs browser vs exec, and when to spawn." />
+  <link rel="stylesheet" href="./assets/css/style.css" />
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <div class="brand">
+        <h1><a href="./index.html">Lobstermax</a></h1>
+        <span class="badge">OpenClaw</span>
+      </div>
+      <nav class="nav">
+        <a href="./promptmaxing.html">Promptmaxing</a>
+        <a href="./toolmaxing.html">Toolmaxing</a>
+        <a href="./skillmaxing.html">Skillmaxing</a>
+        <a href="./safetymaxing.html">Safetymaxing</a>
+        <a href="https://github.com/glp-trog/LobsterMax">Repo</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <h2>Toolmaxing</h2>
+      <p>Pick the right tool first. Reliability beats cleverness.</p>
+    </section>
+
+    <section class="section">
+      <h3>Selection rubric</h3>
+
+      <div class="block">
+        <h4>web_fetch vs browser</h4>
+        <div class="codeHeader">
+          <div class="hint">Default to web_fetch when you only need readable content.</div>
+          <button class="copy" data-copy="t-rubric">Copy</button>
+        </div>
+        <pre id="t-rubric">Use web_fetch when:
+- You only need the text of a page
+- You don’t need login/session state
+- You don’t need to click UI elements
+
+Use browser when:
+- You must interact with UI (forms, buttons)
+- The content is behind scripts/login
+- You need screenshots or to confirm visual layout
+</pre>
+      </div>
+
+      <div class="block">
+        <h4>exec vs browser automation</h4>
+        <div class="codeHeader">
+          <div class="hint">Prefer exec for deterministic local tasks.</div>
+          <button class="copy" data-copy="t-exec">Copy</button>
+        </div>
+        <pre id="t-exec">Use exec when:
+- Running tests/builds locally
+- Editing files via scripts
+- Inspecting logs, git status, etc.
+
+Use browser automation when:
+- The action exists only in a web UI
+- You need to submit forms or click flows
+
+Rule: don’t automate a web UI if a CLI/API exists.
+</pre>
+      </div>
+
+    </section>
+
+    <section class="section">
+      <h3>Concurrency</h3>
+
+      <div class="block">
+        <h4>When to spawn a sub-agent</h4>
+        <div class="codeHeader">
+          <div class="hint">Use isolation for long or parallel tasks.</div>
+          <button class="copy" data-copy="t-spawn">Copy</button>
+        </div>
+        <pre id="t-spawn">Spawn a sub-agent when:
+- Research or refactors will take more than a couple minutes
+- You want parallel investigation (logs + docs + code)
+- You need a clean context without polluting the main thread
+
+Otherwise: keep it in one thread and finish the loop.
+</pre>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div><a href="./index.html">← Home</a></div>
+      <div><a href="https://github.com/glp-trog/LobsterMax">Repo</a></div>
+    </footer>
+  </div>
+
+  <script src="./assets/js/copy.js"></script>
+</body>
+</html>
