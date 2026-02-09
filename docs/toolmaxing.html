@@ -89,6 +89,57 @@ Otherwise: keep it in one thread and finish the loop.
       </div>
     </section>
 
+    <section class="section">
+      <h3>Operational patterns</h3>
+
+      <div class="block">
+        <h4>Tool-call checklist (before you automate)</h4>
+        <div class="codeHeader">
+          <div class="hint">Makes automation boring (good).</div>
+          <button class="copy" data-copy="t-checklist">Copy</button>
+        </div>
+        <pre id="t-checklist">Before using tools:
+- Identify the minimum tool that can succeed (web_fetch &lt; browser &lt; exec).
+- Pin the working directory and file paths.
+- If the action is destructive, ask for confirmation.
+- Prefer deterministic outputs (JSON, diffs, exact commands).
+- After changes: run a verification command.
+</pre>
+      </div>
+
+      <div class="block">
+        <h4>Cron vs heartbeat (reminders and periodic work)</h4>
+        <div class="codeHeader">
+          <div class="hint">Avoid over-scheduling. Use the right mechanism.</div>
+          <button class="copy" data-copy="t-cron">Copy</button>
+        </div>
+        <pre id="t-cron">Use cron when:
+- Exact timing matters ("9:00 AM sharp")
+- It’s a one-shot reminder ("in 20 minutes")
+- The task should run without main-session context
+
+Use heartbeat when:
+- You want to batch checks (inbox + calendar + notifications)
+- Timing can drift (every ~30 min)
+- You want to reduce API calls
+</pre>
+      </div>
+
+      <div class="block">
+        <h4>Messaging safety (OpenClaw)</h4>
+        <div class="codeHeader">
+          <div class="hint">External actions should be intentional.</div>
+          <button class="copy" data-copy="t-msg">Copy</button>
+        </div>
+        <pre id="t-msg">Before sending a message (message tool):
+- Show the exact message text.
+- Confirm the destination (channel/user).
+- After sending, return NO_REPLY to avoid duplicate replies.
+</pre>
+      </div>
+
+    </section>
+
     <footer class="footer">
       <div><a href="./index.html">← Home</a></div>
       <div><a href="https://github.com/glp-trog/LobsterMax">Repo</a></div>

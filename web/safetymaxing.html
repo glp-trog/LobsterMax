@@ -84,6 +84,43 @@ After approval:
       </div>
     </section>
 
+    <section class="section">
+      <h3>Secret hygiene</h3>
+
+      <div class="block">
+        <h4>Never log secrets</h4>
+        <div class="codeHeader">
+          <div class="hint">Log structure, not sensitive values.</div>
+          <button class="copy" data-copy="x-logs">Copy</button>
+        </div>
+        <pre id="x-logs">Rules:
+- Don’t paste tokens, cookies, private keys.
+- Don’t commit local key files.
+- Scrub secrets from crash logs before sharing.
+
+Safer logging:
+- log last4/last6 of ids
+- log error codes, not payloads
+</pre>
+      </div>
+
+      <div class="block">
+        <h4>Domain allowlist pattern</h4>
+        <div class="codeHeader">
+          <div class="hint">Prevent accidental credential leakage to lookalikes/redirects.</div>
+          <button class="copy" data-copy="x-allow">Copy</button>
+        </div>
+        <pre id="x-allow">When sending API keys:
+- Hardcode an allowlist of base URLs
+- Reject redirects that change host
+- Prefer https://www.example.com/api/v1/* (exact host)
+
+If host doesn’t match: abort.
+</pre>
+      </div>
+
+    </section>
+
     <footer class="footer">
       <div><a href="./index.html">← Home</a></div>
       <div><a href="https://github.com/glp-trog/LobsterMax">Repo</a></div>

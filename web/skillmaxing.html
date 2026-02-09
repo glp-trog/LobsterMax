@@ -86,6 +86,64 @@ Then provide:
 
     </section>
 
+    <section class="section">
+      <h3>Repo hygiene</h3>
+
+      <div class="block">
+        <h4>Skill repo checklist</h4>
+        <div class="codeHeader">
+          <div class="hint">Boring repos scale. Weird repos rot.</div>
+          <button class="copy" data-copy="s-repo">Copy</button>
+        </div>
+        <pre id="s-repo">Checklist:
+- README with Quickstart + test command
+- Clear entrypoints (scripts/, src/, etc.)
+- .gitignore includes secrets + build artifacts
+- Deterministic formatting/linting
+- Minimal config surface (env vars documented)
+</pre>
+      </div>
+
+      <div class="block">
+        <h4>Secrets: "keyfile, not git"</h4>
+        <div class="codeHeader">
+          <div class="hint">Prefer local key files referenced by env var paths.</div>
+          <button class="copy" data-copy="s-secrets">Copy</button>
+        </div>
+        <pre id="s-secrets">Pattern:
+- Generate key material locally
+- Store it in a local file (ignored by git)
+- Load via an env var path
+
+Example:
+- PHAEDRUS_KEY_PATH=./phaedrus_key.json
+- .gitignore: phaedrus_key.json
+</pre>
+      </div>
+
+    </section>
+
+    <section class="section">
+      <h3>Testing</h3>
+
+      <div class="block">
+        <h4>Verification ladder</h4>
+        <div class="codeHeader">
+          <div class="hint">Use the smallest test that catches the bug.</div>
+          <button class="copy" data-copy="s-tests">Copy</button>
+        </div>
+        <pre id="s-tests">Verification ladder:
+1) Unit test (fast, local)
+2) Integration test (real dependencies)
+3) End-to-end smoke test (real UI/API)
+
+Rule:
+- If you changed behavior, add at least one verification step.
+</pre>
+      </div>
+
+    </section>
+
     <footer class="footer">
       <div><a href="./index.html">← Home</a></div>
       <div><a href="https://github.com/glp-trog/LobsterMax">Repo</a></div>

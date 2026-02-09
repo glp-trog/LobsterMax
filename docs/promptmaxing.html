@@ -82,6 +82,82 @@ Output format:
       </div>
     </section>
 
+    <section class="section">
+      <h3>High-signal prompts</h3>
+
+      <div class="block">
+        <h4>Bug report → patch</h4>
+        <div class="codeHeader">
+          <div class="hint">Gives the agent enough to reproduce and fix.</div>
+          <button class="copy" data-copy="p-bug">Copy</button>
+        </div>
+        <pre id="p-bug">We have a bug.
+
+Symptoms:
+- &lt;what you see&gt;
+
+Expected:
+- &lt;what should happen&gt;
+
+Repro:
+- &lt;exact steps or commands&gt;
+
+Artifacts:
+- Logs:
+  - &lt;paste&gt;
+- Relevant files:
+  - &lt;paths&gt;
+
+Task:
+- Identify root cause.
+- Propose 1–2 fixes.
+- Implement the safest fix with a minimal diff.
+- Add a test or verification command.
+</pre>
+      </div>
+
+      <div class="block">
+        <h4>Research → executive brief (with citations)</h4>
+        <div class="codeHeader">
+          <div class="hint">Avoids walls of text and demands sources.</div>
+          <button class="copy" data-copy="p-brief">Copy</button>
+        </div>
+        <pre id="p-brief">Research question:
+- &lt;one sentence&gt;
+
+Constraints:
+- Use only primary sources when possible.
+- Provide citations as URLs.
+- Keep answer to 10 bullets max.
+
+Output:
+- Summary (3 bullets)
+- Key facts (bullets, each with a citation)
+- Open questions / unknowns
+</pre>
+      </div>
+
+      <div class="block">
+        <h4>"Make it runnable" (commands + env)</h4>
+        <div class="codeHeader">
+          <div class="hint">Turns "works on my machine" into explicit steps.</div>
+          <button class="copy" data-copy="p-run">Copy</button>
+        </div>
+        <pre id="p-run">Goal: make this runnable for a new machine.
+
+Deliverable:
+- A short Quickstart section with exact commands.
+- List required environment variables.
+- Include a troubleshooting section with 3 common failures.
+
+Constraints:
+- Assume Windows PowerShell.
+- Don’t include secrets.
+</pre>
+      </div>
+
+    </section>
+
     <footer class="footer">
       <div><a href="./index.html">← Home</a></div>
       <div><a href="https://github.com/glp-trog/LobsterMax">Repo</a></div>
